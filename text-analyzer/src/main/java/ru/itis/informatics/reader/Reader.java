@@ -12,9 +12,9 @@ public abstract class Reader {
 	 * punctuation and other characters.
 	 *
 	 * @param line raw line from the file
-	 * @return an array of words
+	 * @return an array of words of the current line
 	 */
-	protected abstract String getReadableLineFrom(final String line);
+	protected abstract List<String> getReadableLineFrom(final String line);
 
 
 	/* ----- Public methods ----- */
@@ -24,7 +24,7 @@ public abstract class Reader {
 	 * words without any punctuation or other characters.
 	 *
 	 * @param lines a raw array from the file
-	 * @return an array of words
+	 * @return an array of words of all lines
 	 */
 	public abstract List<String> getReadableLinesFrom(final List<String> lines);
 
