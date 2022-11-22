@@ -1,4 +1,4 @@
-package ru.itis.informatics.reader;
+package ru.itis.informatics.reader.extensions;
 
 import java.util.List;
 

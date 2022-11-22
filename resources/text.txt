@@ -1,1 +1,2 @@
-    Lorem, -ipsum "dolor" 'sit' *amet*, (consectetur) {elit} do.
+    Lorem, -ipsum "dolor" 'sit' *amet*,
+(consectetur) {elit} do.
