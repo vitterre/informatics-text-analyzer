@@ -1,5 +1,10 @@
-package ru.itis.informatics.reader.extensions;
+package ru.itis.informatics.reader.implementations;
 
+import ru.itis.informatics.reader.Reader;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +31,11 @@ public final class ReaderTXT extends Reader {
 	/* ----- Public methods ----- */
 
 	@Override
-	public List<String> getReadableLinesFrom(final List<String> lines) {
+	public List<String> getReadableLinesFrom(final String filePath) throws IOException {
+		final List<String> lines = Files.readAllLines(Paths.get(filePath));
+
 		// Will contain pure words only
-		List<String> trueWordLines = new ArrayList<>();
+		final List<String> trueWordLines = new ArrayList<>();
 
 		for (final String line : lines) {
 			trueWordLines.addAll(getReadableLineFrom(line));
@@ -36,4 +43,5 @@ public final class ReaderTXT extends Reader {
 
 		return new ArrayList<>(trueWordLines);
 	}
+
 }

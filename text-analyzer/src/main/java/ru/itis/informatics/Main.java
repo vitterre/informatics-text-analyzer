@@ -1,13 +1,15 @@
 package ru.itis.informatics;
 
+import ru.itis.informatics.reader.implementations.ReaderPDF;
+
 import java.io.IOException;
-import ru.itis.informatics.reader.FileReader;
-import ru.itis.informatics.reader.extensions.ReaderTXT;
+import java.util.List;
 
 public final class Main {
 	public static void main(String[] args) throws IOException {
-		final FileReader fileReader = new FileReader("resources/text.txt", new ReaderTXT());
+		final ReaderPDF readerPDF = new ReaderPDF();
+		List<String> lines = readerPDF.getReadableLinesFrom("text-analyzer/src/resources/chekhov.pdf");
 
-		System.out.println(fileReader.getWords());
+		System.out.println(lines.size());
 	}
 }

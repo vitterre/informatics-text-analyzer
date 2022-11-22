@@ -1,5 +1,6 @@
-package ru.itis.informatics.reader.extensions;
+package ru.itis.informatics.reader;
 
+import java.io.IOException;
 import java.util.List;
 
 public abstract class Reader {
@@ -23,9 +24,10 @@ public abstract class Reader {
 	 * Converts all rows of a file into an array containing
 	 * words without any punctuation or other characters.
 	 *
-	 * @param lines a raw array from the file
+	 * @param filePath path of the file that contains the text
+	 *                 we are interested in
 	 * @return an array of words of all lines
 	 */
-	public abstract List<String> getReadableLinesFrom(final List<String> lines);
+	public abstract List<String> getReadableLinesFrom(final String filePath) throws IOException;
 
 }
