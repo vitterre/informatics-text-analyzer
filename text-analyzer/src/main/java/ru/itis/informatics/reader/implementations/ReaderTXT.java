@@ -17,7 +17,7 @@ public final class ReaderTXT extends Reader {
 		// Will contain pure strings
 		final List<String> fixedLines = new ArrayList<>();
 
-		for (final String rawLine : List.of(line.split("[,.\"'*(){}?!_:;</> -]"))) {
+		for (final String rawLine : List.of(line.split("[,.\"'*(){}?!_:;</>«»‘’ -]"))) {
 			// Checks if string contains letters only
 			if (rawLine.matches("^[a-zA-Zа-яА-Я]+$")) {
 				fixedLines.add(rawLine);
