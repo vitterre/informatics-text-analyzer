@@ -1,9 +1,9 @@
 package ru.itis.informatics.reader;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Reader {
+public final class Reader {
 
 	/* ----- Private / protected methods ----- */
 
@@ -15,7 +15,19 @@ public abstract class Reader {
 	 * @param line raw line from the file
 	 * @return an array of words of the current line
 	 */
-	protected abstract List<String> getReadableLineFrom(final String line);
+	private List<String> getReadableLineFrom(final String line) {
+		// Will contain pure strings
+		final List<String> fixedLines = new ArrayList<>();
+
+		for (final String rawLine : List.of(line.split("[,.\"'*(){}?!_:;</>«»‘’ -]"))) {
+			// Checks if string contains letters only
+			if (rawLine.matches("^[a-zA-Zа-яА-Я]+$")) {
+				fixedLines.add(rawLine);
+			}
+		}
+
+		return new ArrayList<>(fixedLines);
+	}
 
 
 	/* ----- Public methods ----- */
@@ -24,10 +36,18 @@ public abstract class Reader {
 	 * Converts all rows of a file into an array containing
 	 * words without any punctuation or other characters.
 	 *
-	 * @param filePath path of the file that contains the text
-	 *                 we are interested in
+	 * @param lines an array of text lines
 	 * @return an array of words of all lines
 	 */
-	public abstract List<String> getReadableLinesFrom(final String filePath) throws IOException;
+	public List<String> getReadableLinesFrom(final List<String> lines) {
+		// Will contain pure words only
+		final List<String> trueWordLines = new ArrayList<>();
+
+		for (final String line : lines) {
+			trueWordLines.addAll(getReadableLineFrom(line));
+		}
+
+		return new ArrayList<>(trueWordLines);
+	}
 
 }
