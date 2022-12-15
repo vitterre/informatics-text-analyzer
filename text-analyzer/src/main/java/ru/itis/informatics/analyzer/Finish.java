@@ -1,4 +1,4 @@
-package ru.itis.informatics.attempt2;
+package ru.itis.informatics.analyzer;
 
 public class Finish {
 	public String[] tempArray = {"abvcacasdasdas", "qweqwe", "zxczxc", "QWEQWE", "abvcacasdasdas", "hfdhdfhdhdh", "gsgdgsgsd", "sdgsdgsdgsdgsd", "gdgsdngngfnfgn", "sfhfhtsdhdh", "ahfmmfnwrwe"};

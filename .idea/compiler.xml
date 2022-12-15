@@ -9,5 +9,8 @@
         <module name="text-analyzer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="analyzer" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>

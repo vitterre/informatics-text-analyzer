@@ -1,8 +1,8 @@
-package ru.itis.informatics.attempt2;
+package ru.itis.informatics.analyzer;
 
 import java.util.*;;
 
-import static ru.itis.informatics.attempt2.Counter.tempMap;
+import static ru.itis.informatics.analyzer.Counter.tempMap;
 
 public class MostCommonWords {
 

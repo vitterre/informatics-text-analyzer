@@ -1,4 +1,4 @@
-package ru.itis.informatics.attempt2;
+package ru.itis.informatics.analyzer;
 
 import java.util.*;
 
@@ -20,8 +20,3 @@ public class Counter {
 		return tempMap.size();
 	}
 }
-
-
-//////		ArrayList<Integer> amount = new ArrayList<>(tempMap.values());
-//////		HashMap<String, Integer> frequentWords = new HashMap<String, Integer>();
-//////		Collections.sort(amount, Collections.reverseOrder());
