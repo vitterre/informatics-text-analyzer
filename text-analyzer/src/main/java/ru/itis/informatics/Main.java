@@ -1,19 +1,25 @@
 package ru.itis.informatics;
 
 import ru.itis.informatics.analyzer.mapmaker.WordsMap;
+import ru.itis.informatics.opener.FileOpener;
+import ru.itis.informatics.opener.FileOpenerTXT;
 import ru.itis.informatics.tools.MapFilter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
-	private static String[] tempArray = {"abvcacasdasdas", "qweqwe", "zxczxc", "QWEQWE", "abvcacasdasdas", "hfdhdfhdhdh", "gsgdgsgsd", "sdgsdgsdgsdgsd", "gdgsdngngfnfgn", "sfhfhtsdhdh", "ahfmmfnwrwe"};
+	public static void main(String[] args) throws IOException {
+		final FileOpener fileOpener = new FileOpenerTXT("text-analyzer/src/resources/text.txt");
 
-	public static void main(String[] args) {
+		// Get words from the file
+		final List<String> words = fileOpener.getWords();
+
 		// Get unique words map
-		final Map<String, Integer> uniqueWordsMap = WordsMap.getWordsMap(new ArrayList<>(List.of(tempArray)));
+		final Map<String, Integer> uniqueWordsMap = WordsMap.getWordsMap(words);
 
 		System.out.println("Unique words: " + uniqueWordsMap.size());
 		final int amountOfTheMostPopularWords = 5;
