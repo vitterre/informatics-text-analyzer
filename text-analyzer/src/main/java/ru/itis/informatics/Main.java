@@ -12,6 +12,7 @@ public class Main {
 	private static String[] tempArray = {"abvcacasdasdas", "qweqwe", "zxczxc", "QWEQWE", "abvcacasdasdas", "hfdhdfhdhdh", "gsgdgsgsd", "sdgsdgsdgsdgsd", "gdgsdngngfnfgn", "sfhfhtsdhdh", "ahfmmfnwrwe"};
 
 	public static void main(String[] args) {
+		// Get unique words map
 		final Map<String, Integer> uniqueWordsMap = WordsMap.getWordsMap(new ArrayList<>(List.of(tempArray)));
 
 		System.out.println("Unique words: " + uniqueWordsMap.size());
@@ -22,7 +23,7 @@ public class Main {
 		Map<String, Integer> sortedUniqueMap = MapFilter.sortReversed(uniqueWordsMap);
 		Iterator<Map.Entry<String, Integer>> iterator = sortedUniqueMap.entrySet().iterator();
 
-
+		// Print the most popular words
 		for (int i = 0; i < amountOfTheMostPopularWords; ++i) {
 			if (iterator.hasNext()) {
 				Map.Entry<String, Integer> entry = iterator.next();
