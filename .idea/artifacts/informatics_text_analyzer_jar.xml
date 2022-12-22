@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="informatics-text-analyzer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/informatics_text_analyzer_jar</output-path>
+    <root id="archive" name="informatics-text-analyzer.jar">
+      <element id="module-output" name="informatics-text-analyzer" />
+      <element id="module-output" name="text-analyzer" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/pdfbox/pdfbox/2.0.27/pdfbox-2.0.27.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/beust/jcommander/1.82/jcommander-1.82.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/pdfbox/fontbox/2.0.27/fontbox-2.0.27.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
