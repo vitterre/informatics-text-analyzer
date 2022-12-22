@@ -1,40 +1,41 @@
 package ru.itis.informatics;
 
-import ru.itis.informatics.analyzer.mapmaker.WordsMap;
-import ru.itis.informatics.opener.FileOpener;
-import ru.itis.informatics.opener.FileOpenerTXT;
-import ru.itis.informatics.tools.MapFilter;
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.ParameterException;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+/**
+ * Benchmarking results:
+ * Raw words:          8 151 917
+ * Unique words:       1 083 041 (9 234 958)
+ * Amount of words:      771 084 (10 006 042)
+ * Sorted words:       4 057 125 (14 063 167)
+ * Most popular (2):   5 878 708 (19 941 875)
+ * Estimated time:     19 941 875 ~= 0.02 seconds
+ */
 
-public class Main {
-	public static void main(String[] args) throws IOException {
-		final FileOpener fileOpener = new FileOpenerTXT("text-analyzer/src/resources/text.txt");
+public final class Main {
 
-		// Get words from the file
-		final List<String> words = fileOpener.getWords();
+	/* ----- Public methods ----- */
 
-		// Get unique words map
-		final Map<String, Integer> uniqueWordsMap = WordsMap.getWordsMap(words);
+	public static void main(final String[] args) throws Exception {
+		final App app = new App();
+		// We use JCommander in order to easily parse
+		// command line arguments
+		final JCommander jCommander = JCommander.
+						newBuilder().
+						addObject(app).
+						build();
 
-		System.out.println("Unique words: " + uniqueWordsMap.size());
-		final int amountOfTheMostPopularWords = 5;
-
-		System.out.println("" + amountOfTheMostPopularWords + " the most popular words:");
-
-		Map<String, Integer> sortedUniqueMap = MapFilter.sortReversed(uniqueWordsMap);
-		Iterator<Map.Entry<String, Integer>> iterator = sortedUniqueMap.entrySet().iterator();
-
-		// Print the most popular words
-		for (int i = 0; i < amountOfTheMostPopularWords; ++i) {
-			if (iterator.hasNext()) {
-				Map.Entry<String, Integer> entry = iterator.next();
-				System.out.println(entry.getKey() + ": " + entry.getValue());
+		if (!app.mustDisplayUsageInfo()) {
+			try {
+				jCommander.parse(args);
+				app.run();
+			} catch (ParameterException parameterException) {
+				jCommander.usage();
 			}
+		} else {
+			jCommander.usage();
 		}
 	}
+
 }

@@ -13,7 +13,7 @@ public final class Reader {
 	 * punctuation and other characters.
 	 *
 	 * @param line raw line from the file
-	 * @return an array of words of the current line
+	 * @return list of words of the current line
 	 */
 	private List<String> getReadableLineFrom(final String line) {
 		// Will contain pure strings
@@ -37,7 +37,7 @@ public final class Reader {
 	 * words without any punctuation or other characters.
 	 *
 	 * @param lines an array of text lines
-	 * @return an array of words of all lines
+	 * @return list of words of all lines
 	 */
 	public List<String> getReadableLinesFrom(final List<String> lines) {
 		// Will contain pure words only
